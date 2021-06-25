@@ -1,0 +1,12 @@
+# Default ignored files
+/shelf/
+/workspace.xml
+# Editor-based HTTP Client requests
+/httpRequests/
+# Compiled Java class files
+*.class
+# Windows shortcuts
+*.lnk
+*.idea
+*.class
+*.iml
