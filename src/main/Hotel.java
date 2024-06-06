@@ -1,18 +1,29 @@
 package main;
 
 import java.util.Objects;
+import java.util.Map;
 
 public class Hotel {
     private final double rate;
     private final String name;
+    Map<String,Double> rateMap;
 
     public Hotel(double rate, String name) {
         this.rate = rate;
         this.name = name;
     }
 
+      public Hotel(Map<String,Double> rateMap, String name) {
+        this.rateMap = rateMap;
+        this.name = name;
+    }
+
     public double getRate() {
         return rate;
+    }
+
+    public Map getRateMap(){
+        return this.rateMap;
     }
 
     @Override
