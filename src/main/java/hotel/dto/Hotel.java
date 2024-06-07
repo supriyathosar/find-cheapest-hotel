@@ -1,28 +1,28 @@
-package main;
+package hotel.dto;
 
+import java.util.Comparator;
 import java.util.Objects;
 import java.util.Map;
 
 public class Hotel {
-    private final double rate;
-    private final String name;
-    Map<String,Double> rateMap;
 
-    public Hotel(double rate, String name) {
-        this.rate = rate;
-        this.name = name;
+
+    public String getName() {
+        return name;
     }
+
+    private final String name;
+    private final Map<String,Double> rateMap;
 
       public Hotel(Map<String,Double> rateMap, String name) {
-        this.rateMap = rateMap;
+
+          this.rateMap = rateMap;
         this.name = name;
     }
 
-    public double getRate() {
-        return rate;
-    }
 
-    public Map getRateMap(){
+
+    public Map<String,Double> getRateMap(){
         return this.rateMap;
     }
 
@@ -31,12 +31,13 @@ public class Hotel {
         if (this == o) return true;
         if (!(o instanceof Hotel)) return false;
         Hotel hotel = (Hotel) o;
-        return Double.compare(hotel.getRate(), getRate()) == 0 &&
+
+        return hotel.getRateMap().entrySet().stream().allMatch(e->e.getValue().equals(this.getRateMap().get(e.getKey()))) &&
                 Objects.equals(name, hotel.name);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getRate(), name);
+        return Objects.hash(getRateMap(), name);
     }
 }
